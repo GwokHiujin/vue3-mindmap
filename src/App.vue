@@ -45,8 +45,9 @@
 
 <script lang="ts">
 import learn from './learn.json'
+import fileText from './test_mind.json'
 import { defineComponent, reactive, ref } from 'vue'
-import Mindmap from './components/Mindmap'
+import Mindmap from '../dist/vue3-mindmap.umd'
 import { Locale } from './components/Mindmap/interface'
 
 type checkbox = { [key: string]: { value: boolean, disabled?: boolean } }
@@ -63,20 +64,20 @@ export default defineComponent({
       timetravel: { value: true },
       'download-btn': { value: true },
       'add-node-btn': { value: true },
-      keyboard: { value: false, disabled: true },
+      keyboard: { value: true, disabled: false },
       zoom: { value: true },
       drag: { value: true },
       edit: { value: true },
       contextmenu: { value: true },
       'sharp-corner': { value: false },
-      vertical: { value: false, disabled: true }
+      vertical: { value: true, disabled: false }
     })
     const rangeList = reactive({
       branch: { value: 4, min: 1, max: 6 },
       'x-gap': { value: 84, min: 0, max: 100 },
       'y-gap': { value: 18, min: 0, max: 100 }
     })
-    const data = ref(learn)
+    const data = ref(fileText)
     const onChange = () => console.log('update:model-value')
     const locale = ref<Locale>('zh')
 
