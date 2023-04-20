@@ -1,5 +1,5 @@
 {
-  "name": "vue3-mindmap",
+  "name": "ficus-mindmap",
   "description": "Mindmap component for Vue3",
   "author": "伍鑫",
   "license": "MIT",
@@ -15,7 +15,7 @@
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "version": "0.5.14",
+  "version": "0.5.15",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -82,5 +82,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hellowuxin/vue3-mindmap.git"
+  },
+  "types": "./dist\\vue3-mindmap.umd.d.ts",
+  "directories": {
+    "doc": "docs"
   }
 }
