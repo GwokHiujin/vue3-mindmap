@@ -1,27 +1,16 @@
 <template>
   <div class="container">
-    <div class="right-top">
-      <span>TestChange</span>
+    <div class="left-top">
+      <a href="https://github.com/hellowuxin/vue3-mindmap" target="_blank">GitHub</a>
     </div>
-    <mindmap
-      class="left-bottom"
-      v-model="data"
-      :branch="rangeList['branch'].value"
-      :x-gap="rangeList['x-gap'].value"
-      :y-gap="rangeList['y-gap'].value"
-      :zoom="checkboxList['zoom'].value"
-      :fit-btn="checkboxList['fit-btn'].value"
-      :center-btn="checkboxList['center-btn'].value"
-      :download-btn="checkboxList['download-btn'].value"
-      :drag="checkboxList['drag'].value"
-      :edit="checkboxList['edit'].value"
-      :add-node-btn="checkboxList['add-node-btn'].value"
-      :sharp-corner="checkboxList['sharp-corner'].value"
-      :ctm="checkboxList['contextmenu'].value"
-      :timetravel="checkboxList['timetravel'].value"
-      @update:model-value="onChange"
-      :locale="locale"
-    />
+    <div class="right-top"><span>Props</span></div>
+    <mindmap class="left-bottom" v-model="data" :branch="rangeList['branch'].value" :x-gap="rangeList['x-gap'].value"
+      :y-gap="rangeList['y-gap'].value" :zoom="checkboxList['zoom'].value" :fit-btn="checkboxList['fit-btn'].value"
+      :center-btn="checkboxList['center-btn'].value" :download-btn="checkboxList['download-btn'].value"
+      :drag="checkboxList['drag'].value" :edit="checkboxList['edit'].value"
+      :add-node-btn="checkboxList['add-node-btn'].value" :sharp-corner="checkboxList['sharp-corner'].value"
+      :ctm="checkboxList['contextmenu'].value" :timetravel="checkboxList['timetravel'].value"
+      @update:model-value="onChange" @select="onSelect" :locale="locale" :defalutScale="1.1" />
     <div class="right-bottom">
       <div>
         <label for="language-select">Language</label>
@@ -45,9 +34,9 @@
 
 <script lang="ts">
 import learn from './learn.json'
-import fileText from './test_mind.json'
+import testMind from './test_mind.json'
 import { defineComponent, reactive, ref } from 'vue'
-import Mindmap from '../dist/vue3-mindmap.umd'
+import Mindmap from './components/Mindmap'
 import { Locale } from './components/Mindmap/interface'
 
 type checkbox = { [key: string]: { value: boolean, disabled?: boolean } }
@@ -57,28 +46,33 @@ export default defineComponent({
   components: {
     Mindmap
   },
-  setup () {
+  setup() {
     const checkboxList = reactive<checkbox>({
       'center-btn': { value: true },
       'fit-btn': { value: true },
       timetravel: { value: true },
       'download-btn': { value: true },
       'add-node-btn': { value: true },
-      keyboard: { value: true, disabled: false },
+      keyboard: { value: false, disabled: true },
       zoom: { value: true },
-      drag: { value: true },
+      drag: { value: false },
       edit: { value: true },
       contextmenu: { value: true },
       'sharp-corner': { value: false },
-      vertical: { value: true, disabled: false }
+      vertical: { value: false, disabled: true }
     })
     const rangeList = reactive({
-      branch: { value: 4, min: 1, max: 6 },
-      'x-gap': { value: 84, min: 0, max: 100 },
+      branch: { value: 2, min: 1, max: 6 },
+      'x-gap': { value: 84, min: 0, max: 200 },
       'y-gap': { value: 18, min: 0, max: 100 }
     })
-    const data = ref(fileText)
-    const onChange = () => console.log('update:model-value')
+    const data = ref(testMind)
+    const onChange = (msg: any) => {
+      // console.log(msg)
+    }
+    const onSelect = (msg: any) => {
+      console.log(msg)
+    }
     const locale = ref<Locale>('zh')
 
     return {
@@ -86,6 +80,7 @@ export default defineComponent({
       checkboxList,
       rangeList,
       onChange,
+      onSelect,
       locale
     }
   }
@@ -97,9 +92,9 @@ export default defineComponent({
   width: 100%;
   height: calc(100vh - 16px);
   border-radius: 4px;
-  border: thin solid rgba(0,0,0,.12);
+  border: thin solid rgba(0, 0, 0, .12);
   overflow: hidden;
-  background-color: rgba(0,0,0,.12);
+  background-color: rgba(0, 0, 0, .12);
   display: grid;
   grid-template-columns: 75% 1px 25%;
   grid-template-rows: 48px 1px auto;
@@ -144,5 +139,30 @@ input[type='checkbox'] {
 
 input:disabled {
   cursor: not-allowed;
+}
+
+.Mindmap_svg_fgvb6 {
+  background: radial-gradient(rgb(80, 80, 80) 1px, rgb(47, 49, 54) 1px) 0% 0% / 25px 25px rgb(47, 49, 54);
+
+  .Mindmap_root_fgvb6>.Mindmap_content_fgvb6>.Mindmap_text_fgvb6>text {
+    fill: #333
+  }
+
+  .Mindmap_text_fgvb6>rect {
+    fill: rgba(255, 255, 255, 0.2);
+  }
+
+  text {
+    fill: #fff;
+
+    .l2{
+      fill: #63ff63;
+      font-size: 12px;
+    }
+    .l3{
+      fill: #ff8585;
+      font-size: 12px;
+    }
+  }
 }
 </style>
