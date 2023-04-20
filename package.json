@@ -1,5 +1,5 @@
 {
-  "name": "vite-mindmap",
+  "name": "ficus",
   "description": "Mindmap component for Vue3",
   "author": "伍鑫",
   "license": "MIT",
@@ -82,5 +82,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/weijiatan456/vite-mindmap.git"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }
