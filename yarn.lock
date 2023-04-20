@@ -2504,6 +2504,25 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
+ficus-mindmap@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/ficus-mindmap/-/ficus-mindmap-1.0.0.tgz#c2cf7b61564fc4170a3b1e47af83a53fda95e51d"
+  integrity sha512-HQAfmY4FbLtXDrBz3RJUGgUy2RNLYKhgHCDdAhGehFxje6bINuTES4c5W7LQYwbQiOhS8QRKDGVTNRntFJx21g==
+  dependencies:
+    d3-drag "^2.0.0"
+    d3-interpolate "^2.0.1"
+    d3-scale "^3.3.0"
+    d3-scale-chromatic "^2.0.0"
+    d3-selection "^2.0.0"
+    d3-shape "^2.1.0"
+    d3-transition "^2.0.0"
+    d3-zoom "^2.0.0"
+    html2canvas "^1.0.0-rc.7"
+    i18next "^21.6.6"
+    lodash.clonedeep "^4.5.0"
+    mitt "^2.1.0"
+    vue "^3.0.0"
+
 figures@^3.1.0:
   version "3.2.0"
   resolved "https://registry.npmmirror.com/figures/-/figures-3.2.0.tgz#625c18bd293c604dc4a8ddb2febf0c88341746af"
