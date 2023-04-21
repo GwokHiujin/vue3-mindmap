@@ -1,21 +1,21 @@
 {
-  "name": "ficus-vite-mindmap",
+  "name": "ficus-mindmap",
   "description": "Mindmap component for Vue3",
   "author": "伍鑫",
   "license": "MIT",
   "files": [
     "dist"
   ],
-  "main": "./dist/ficus-vite-mindmap.umd.js",
-  "module": "./dist/ficus-vite-mindmap.es.js",
+  "main": "./dist/ficus-mindmap.umd.js",
+  "module": "./dist/ficus-mindmap.es.js",
   "exports": {
     ".": {
-      "import": "./dist/ficus-vite-mindmap.es.js",
-      "require": "./dist/ficus-vite-mindmap.umd.js"
+      "import": "./dist/ficus-mindmap.es.js",
+      "require": "./dist/ficus-mindmap.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "version": "0.6.8",
+  "version": "0.6.9",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -72,5 +72,14 @@
   },
   "directories": {
     "doc": "docs"
-  }
+  },
+  "types": "./dist\\ficus-mindmap.umd.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GwokHiujin/vue3-mindmap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GwokHiujin/vue3-mindmap/issues"
+  },
+  "homepage": "https://github.com/GwokHiujin/vue3-mindmap#readme"
 }
