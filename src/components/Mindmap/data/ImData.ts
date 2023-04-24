@@ -229,6 +229,9 @@ class ImData {
     const del = this.find(delId)
     const delIndex = delId.split('-').pop()
     if (delIndex && np && del) {
+      if (np.children.length === 0) {
+        return null
+      }
       const delParent = del.parent
       delParent?.children?.splice(~~delIndex, 1)
       delParent?.rawData.children?.splice(~~delIndex, 1)
