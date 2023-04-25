@@ -103,7 +103,7 @@ class ImData {
     xGap: number,
     yGap: number,
     getSize: GetSize,
-    colorScale = d3Scale.scaleOrdinal(d3ScaleChromatic.schemePaired)
+    colorScale = d3Scale.scaleOrdinal(['#edeec9', '#dde7c7', '#d3e2c4', '#c9ddc0', '#bfd8bd', '#acd1b0', '#98c9a3', '#88c4a3', '#77bfa3', '#3B7D62'])
   ) {
     this.colorScale = colorScale
     this.getSize = getSize
