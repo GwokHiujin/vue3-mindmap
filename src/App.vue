@@ -84,7 +84,82 @@ export default defineComponent({
     const getImgURL = () => {
       if (map.value) {
         // map.value.downloadPNG()
-        map.value.init(learn)
+        let curData = [{
+          "name": "如何学习D3",
+          "children": [
+            {
+              "name": "预备知识",
+              "children": [
+                {
+                  "name": "HTML & CSS"
+                },
+                {
+                  "name": "JavaScript"
+                },
+                {
+                  "name": "DOM"
+                },
+                {
+                  "name": "SVG"
+                },
+                {
+                  "name": "test\ntest"
+                }
+              ]
+            },
+            {
+              "name": "安装",
+              "collapse": false,
+              "children": [
+                {
+                  "name": "折叠节点"
+                }
+              ]
+            },
+            {
+              "name": "入门",
+              "children": [
+                {
+                  "name": "选择集"
+                },
+                {
+                  "name": "test"
+                },
+                {
+                  "name": "绑定数据"
+                },
+                {
+                  "name": "添加删除元素"
+                },
+                {
+                  "name": "简单图形",
+                  "children": [
+                    {
+                      "name": "柱形图"
+                    },
+                    {
+                      "name": "折线图"
+                    },
+                    {
+                      "name": "散点图"
+                    }
+                  ]
+                },
+                {
+                  "name": "比例尺"
+                },
+                {
+                  "name": "生成器"
+                },
+                {
+                  "name": "过渡"
+                }
+              ],
+              "left": false
+            }
+          ]
+        }]
+        map.value.init(curData)
       }
     }
 
@@ -156,30 +231,5 @@ input[type='checkbox'] {
 
 input:disabled {
   cursor: not-allowed;
-}
-
-.Mindmap_svg_fgvb6 {
-  background: radial-gradient(rgb(80, 80, 80) 1px, rgb(47, 49, 54) 1px) 0% 0% / 25px 25px rgb(47, 49, 54);
-
-  .Mindmap_root_fgvb6>.Mindmap_content_fgvb6>.Mindmap_text_fgvb6>text {
-    fill: #333
-  }
-
-  .Mindmap_text_fgvb6>rect {
-    fill: rgba(255, 255, 255, 0.2);
-  }
-
-  text {
-    fill: #fff;
-
-    .l2{
-      fill: #63ff63;
-      font-size: 12px;
-    }
-    .l3{
-      fill: #ff8585;
-      font-size: 12px;
-    }
-  }
 }
 </style>

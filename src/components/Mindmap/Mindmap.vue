@@ -151,6 +151,11 @@ export default defineComponent({
       fitView()
     }
 
+    function fit (): void {
+      draw()
+      fitView()
+    }
+
     return {
       wrapperEle,
       svgEle,
@@ -170,7 +175,8 @@ export default defineComponent({
       hasPrev,
       hasNext,
       downloadPNG,
-      init
+      init,
+      fit
     }
   }
 })
