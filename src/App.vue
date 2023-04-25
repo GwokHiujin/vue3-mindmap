@@ -9,7 +9,7 @@
       :center-btn="checkboxList['center-btn'].value" :download-btn="checkboxList['download-btn'].value"
       :drag="checkboxList['drag'].value" :edit="checkboxList['edit'].value"
       :add-node-btn="checkboxList['add-node-btn'].value" :sharp-corner="checkboxList['sharp-corner'].value"
-      :ctm="checkboxList['contextmenu'].value" :timetravel="checkboxList['timetravel'].value"
+      :ctm="checkboxList['contextmenu'].value" :timetravel="checkboxList['timetravel'].value" :defalut-scale="0.9"
       @update:model-value="onChange" @select="onSelect" :locale="locale" :defalutScale="1.1"
       ref="map"
     />
@@ -39,10 +39,9 @@
 
 <script lang="ts">
 import learn from './learn.json'
-import { defineComponent, reactive, ref } from 'vue'
+import {defineComponent, onMounted, reactive, ref} from 'vue'
 import Mindmap from './components/Mindmap'
 import { Locale } from './components/Mindmap/interface'
-import mindmap from "./components/Mindmap";
 
 type checkbox = { [key: string]: { value: boolean, disabled?: boolean } }
 
@@ -71,7 +70,9 @@ export default defineComponent({
       'x-gap': { value: 84, min: 0, max: 200 },
       'y-gap': { value: 18, min: 0, max: 100 }
     })
-    const data = ref(learn)
+    const data = ref([{
+      name: ''
+    }])
     const onChange = (msg: any) => {
       console.log(msg)
     }
@@ -82,7 +83,8 @@ export default defineComponent({
 
     const getImgURL = () => {
       if (map.value) {
-        map.value.downloadPNG()
+        // map.value.downloadPNG()
+        map.value.init(learn)
       }
     }
 

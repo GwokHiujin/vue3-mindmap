@@ -145,6 +145,12 @@ export default defineComponent({
       downloadImg()
     }
 
+    function init (data: any): void {
+      emitter.emit('mmdata', new ImData(cloneDeep(data[0]), xGap, yGap, getSize))
+      draw()
+      fitView()
+    }
+
     return {
       wrapperEle,
       svgEle,
@@ -163,7 +169,8 @@ export default defineComponent({
       prev,
       hasPrev,
       hasNext,
-      downloadPNG
+      downloadPNG,
+      init
     }
   }
 })
