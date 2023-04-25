@@ -10,7 +10,9 @@
       :drag="checkboxList['drag'].value" :edit="checkboxList['edit'].value"
       :add-node-btn="checkboxList['add-node-btn'].value" :sharp-corner="checkboxList['sharp-corner'].value"
       :ctm="checkboxList['contextmenu'].value" :timetravel="checkboxList['timetravel'].value"
-      @update:model-value="onChange" @select="onSelect" :locale="locale" :defalutScale="1.1" />
+      @update:model-value="onChange" @select="onSelect" :locale="locale" :defalutScale="1.1"
+      ref="map"
+    />
     <div class="right-bottom">
       <div>
         <label for="language-select">Language</label>
@@ -20,6 +22,9 @@
           <option value="ptBR">Brazilian Portuguese</option>
         </select>
       </div>
+      <button @click="getImgURL">
+        TEST
+      </button>
       <div v-for="(item, key) in checkboxList" :key="key">
         <input type="checkbox" :name="key.toString()" v-model="item.value" :disabled="item.disabled">
         <label :for="key.toString()">{{ key }}</label>
@@ -37,6 +42,7 @@ import learn from './learn.json'
 import { defineComponent, reactive, ref } from 'vue'
 import Mindmap from './components/Mindmap'
 import { Locale } from './components/Mindmap/interface'
+import mindmap from "./components/Mindmap";
 
 type checkbox = { [key: string]: { value: boolean, disabled?: boolean } }
 
@@ -72,6 +78,14 @@ export default defineComponent({
     const onSelect = (msg: any) => {
       console.log(msg)
     }
+    const map = ref()
+
+    const getImgURL = () => {
+      if (map.value) {
+        map.value.downloadPNG()
+      }
+    }
+
     const locale = ref<Locale>('zh')
 
     return {
@@ -80,7 +94,9 @@ export default defineComponent({
       rangeList,
       onChange,
       onSelect,
-      locale
+      getImgURL,
+      locale,
+      map
     }
   }
 })

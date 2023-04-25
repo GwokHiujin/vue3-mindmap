@@ -1,14 +1,14 @@
 import emitter from '@/mitt'
 import html2canvas from 'html2canvas'
-import { getDataId, getGTransform, getPath } from './attribute'
+import {getDataId, getGTransform, getPath} from './attribute'
 import * as d3 from './d3'
 import style from './css'
-import { Data, Mdata, TwoNumber } from './interface'
-import { observer, selection, zoom, zoomTransform } from './variable'
-import { afterOperation, mmdata } from './data'
-import { snapshot } from './state'
-import { foreignDivEle, gEle, svgEle, wrapperEle } from './variable/element'
-import { onEditBlur } from './listener'
+import {Data, Mdata, TwoNumber} from './interface'
+import {observer, selection, zoom, zoomTransform} from './variable'
+import {afterOperation, mmdata} from './data'
+import {snapshot} from './state'
+import {foreignDivEle, gEle, svgEle, wrapperEle} from './variable/element'
+import {onEditBlur} from './listener'
 
 /**
  * 使页面重排
@@ -143,7 +143,7 @@ export const centerView = (): void => {
 /**
  * 缩放至合适大小并移动至全部可见
  */
-export const fitView = (n: number = 1.1): void => {
+export const fitView = (n = 1.1): void => {
   const { svg } = selection
   if (!svg || !gEle.value || !svgEle.value) { return }
   const gBB = gEle.value.getBBox()
@@ -198,8 +198,43 @@ export const scaleView = (flag: boolean): void => {
   zoom.scaleBy(svg, flag ? 1.1 : 0.9)
 }
 export const download = (): void => {
+  fitView()
   if (!wrapperEle.value) { return }
   convertToImg(wrapperEle.value, mmdata.data.name)
+}
+
+export const downloadImg = (): void => {
+  fitView()
+  if (wrapperEle.value)
+    html2canvas(wrapperEle.value).then((canvas) => {
+      const img = canvas.toDataURL('image/png', 1);
+      // eslint-disable-next-line prefer-const
+      let lnk = document.createElement('a'), e
+      lnk.download = 'ficus.png'
+      lnk.href = img
+      /// create a "fake" click-event to trigger the download
+      if (document.createEvent) {
+        e = document.createEvent('MouseEvents')
+        e.initMouseEvent(
+          'click',
+          true,
+          true,
+          window,
+          0,
+          0,
+          0,
+          0,
+          0,
+          false,
+          false,
+          false,
+          false,
+          0,
+          null
+        );
+        lnk.dispatchEvent(e)
+      }
+    })
 }
 export const next = (): void => {
   const nextData = snapshot.next()

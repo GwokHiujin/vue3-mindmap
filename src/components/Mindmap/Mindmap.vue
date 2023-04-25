@@ -31,7 +31,7 @@ import style from './css'
 import * as d3 from './d3'
 import { afterOperation, ImData, mmdata } from './data'
 import { hasNext, hasPrev } from './state'
-import { fitView, getSize, centerView, next, prev, download, bindForeignDiv } from './assistant'
+import {fitView, getSize, centerView, next, prev, download, bindForeignDiv, downloadImg} from './assistant'
 import { xGap, yGap, branch, scaleExtent, ctm, selection, changeSharpCorner, addNodeBtn, mmprops } from './variable'
 import { wrapperEle, svgEle, gEle, asstSvgEle, foreignEle, foreignDivEle } from './variable/element'
 import { draw } from './draw'
@@ -141,6 +141,10 @@ export default defineComponent({
     watch(() => props.zoom, (val) => switchZoom(val))
     watch(() => props.ctm, (val) => switchContextmenu(val))
 
+    function downloadPNG (): void {
+      downloadImg()
+    }
+
     return {
       wrapperEle,
       svgEle,
@@ -158,7 +162,8 @@ export default defineComponent({
       next,
       prev,
       hasPrev,
-      hasNext
+      hasNext,
+      downloadPNG
     }
   }
 })
