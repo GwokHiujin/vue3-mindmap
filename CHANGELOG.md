@@ -1,5 +1,7 @@
 # Changelog
 
+### [0.6.22](https://github.com/GwokHiujin/vue3-mindmap/compare/v0.6.21...v0.6.22) (2023-04-25)
+
 ### [0.6.21](https://github.com/GwokHiujin/vue3-mindmap/compare/v0.6.17...v0.6.21) (2023-04-25)
 
 ### [0.6.18](https://github.com/GwokHiujin/vue3-mindmap/compare/v0.6.17...v0.6.18) (2023-04-25)
