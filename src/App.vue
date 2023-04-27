@@ -70,9 +70,7 @@ export default defineComponent({
       'x-gap': { value: 84, min: 0, max: 200 },
       'y-gap': { value: 18, min: 0, max: 100 }
     })
-    const data = ref([{
-      name: ''
-    }])
+    const data = ref(learn)
     const onChange = (msg: any) => {
       console.log(msg)
     }
@@ -86,24 +84,31 @@ export default defineComponent({
         // map.value.downloadPNG()
         let curData = [{
           "name": "如何学习D3",
+          "hidden": false,
           "children": [
             {
               "name": "预备知识",
+              "hidden": false,
               "children": [
                 {
-                  "name": "HTML & CSS"
+                  "name": "HTML & CSS",
+                  "hidden": false,
                 },
                 {
-                  "name": "JavaScript"
+                  "name": "JavaScript",
+                  "hidden": false,
                 },
                 {
-                  "name": "DOM"
+                  "name": "DOM",
+                  "hidden": false,
                 },
                 {
-                  "name": "SVG"
+                  "name": "SVG",
+                  "hidden": false,
                 },
                 {
-                  "name": "test\ntest"
+                  "name": "test\ntest",
+                  "hidden": false,
                 }
               ]
             },
@@ -118,6 +123,7 @@ export default defineComponent({
             },
             {
               "name": "入门",
+              "hidden": true,
               "children": [
                 {
                   "name": "选择集"

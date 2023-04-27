@@ -145,8 +145,7 @@ export default defineComponent({
       downloadImg()
     }
 
-    function init (data: any): void {
-      emitter.emit('mmdata', new ImData(cloneDeep(data[0]), xGap, yGap, getSize))
+    function init (): void {
       draw()
       fitView()
     }

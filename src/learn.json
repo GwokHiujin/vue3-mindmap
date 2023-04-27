@@ -24,6 +24,7 @@
       },
       {
         "name": "安装",
+        "hidden": true,
         "collapse": false,
         "children": [
           {
