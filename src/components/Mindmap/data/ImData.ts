@@ -134,13 +134,11 @@ class ImData {
     if (rawChildren) {
       if (!data.collapse) {
         rawChildren.forEach((c, j) => {
-          if (!c.hidden)
-            data.children.push(this.createMdataFromData(c, `${id}-${j}`, data))
+          data.children.push(this.createMdataFromData(c, `${id}-${j}`, data))
         })
       } else {
         rawChildren.forEach((c, j) => {
-          if (!c.hidden)
-            data._children.push(this.createMdataFromData(c, `${id}-${j}`, data))
+          data._children.push(this.createMdataFromData(c, `${id}-${j}`, data))
         })
       }
     }

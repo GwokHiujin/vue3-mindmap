@@ -7,6 +7,7 @@ $selectColor: rgba($color: #2bb680, $alpha: 0.4);
   svg text {
     white-space: pre;
     font-size: 14px;
+    user-select: none;
   }
 
   #svg-wrapper {
@@ -36,6 +37,7 @@ $selectColor: rgba($color: #2bb680, $alpha: 0.4);
     fill: #4B4B4B;
     cursor: default;
     font-size: 14px;
+    user-select: none;
   }
 
   foreignObject {
